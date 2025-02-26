@@ -116,15 +116,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
 
           </div>
@@ -137,11 +128,17 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <!-- Paper video -->
       <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <img src="./static/images/teaserv4.jpg" alt="DexGraspVLA Teaser">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
+      <!-- /Paper video -->
+      
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">DexGraspVLA</span> is a hierarchical vision-language-action framework 
         that combines pretrained vision-language models with diffusion-based policies for robust 
@@ -152,57 +149,296 @@
 </section>
 
 
+<!-- Video Gallery Section - Replaces the carousel section -->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
+      <h2 class="title is-3 has-text-centered">Video Demonstrations</h2>
+      
+      <!-- Video Categories Navigation -->
+      <div class="tabs is-centered" id="video-tabs">
+        <ul>
+          <li class="is-active" data-target="long-horizon"><a>Long-Horizon Tasks</a></li>
+          <li data-target="human-interference"><a>Human Interference</a></li>
+          <li data-target="regrasp-closeloop"><a>Regrasp (Close-Loop)</a></li>
+          <li data-target="lighting-generalization"><a>Lighting Generalization</a></li>
+          <li data-target="background-generalization"><a>Background Generalization</a></li>
+          <li data-target="small-objects"><a>Small Object Grasping</a></li>
+          <li data-target="basic-grasping"><a>Basic Grasping</a></li>
+        </ul>
+      </div>
+      
+      <!-- Video Content Sections -->
+      <!-- 1. Long-Horizon Tasks -->
+      <div id="long-horizon" class="video-content active">
+        <h3 class="subtitle has-text-centered mb-4">Long-Horizon Manipulation Tasks</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/long_horizon_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Clearing a table</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/long_horizon_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Sequential pick-and-place</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/long_horizon_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Multi-stage assembly</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/long_horizon_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Organizing objects</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 2. Human Interference -->
+      <div id="human-interference" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Robustness to Human Interference</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/human_interference_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Object moved during approach</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/human_interference_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Hand blocked during grasp</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/human_interference_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Object pulled during grasp</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/human_interference_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Recovery from disturbance</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 3. Regrasp (Close-Loop) -->
+      <div id="regrasp-closeloop" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Closed-Loop Regrasping Capability</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/regrasp_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Regrasp after slip</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/regrasp_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Regrasp after failed attempt</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/regrasp_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Progressive grip adjustment</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/regrasp_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Reorientation for better grasp</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 4. Lighting Generalization -->
+      <div id="lighting-generalization" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Robustness to Different Lighting Conditions</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/lighting_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Bright lighting</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/lighting_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Dim lighting</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/lighting_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Dynamic lighting changes</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/lighting_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Shadow conditions</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 5. Background Generalization -->
+      <div id="background-generalization" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Generalization Across Different Backgrounds</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/env_gen_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Office background</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/env_gen_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Kitchen background</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/env_gen_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Living room background</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/env_gen_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Lab background</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 6. Small Object Grasping -->
+      <div id="small-objects" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Small and Challenging Object Grasping</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/small_obj_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping small pins</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/small_obj_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping dice</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/small_obj_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping paper clips</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/small_obj_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping coins</p>
+            </div>
+          </div>
         </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      
+      <!-- 7. Basic Grasping -->
+      <div id="basic-grasping" class="video-content">
+        <h3 class="subtitle has-text-centered mb-4">Basic Grasping Capabilities</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/basic_grasping_1.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping a coffee mug</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/basic_grasping_2.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping a teddy bear</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/basic_grasping_3.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping a ball</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <video autoplay loop muted playsinline>
+                <source src="./static/videos/basic_grasping_4.mp4" type="video/mp4">
+              </video>
+              <p class="has-text-centered mt-2">Grasping a book</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,15 +448,6 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Main figure. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <img src="./static/images/frameworkv12.jpg" alt="DexGraspVLA Framework">
-        <p class="is-size-5">DexGraspVLA: A Vision-Language-Action Framework for Dexterous Grasping</p>
-      </div>
-    </div>
-    <!--/ Main figure. -->
-
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -249,21 +476,72 @@
     </div>
     <!--/ Abstract. -->
 
+    <!-- Framework. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 fancy-title">Framework</h2>
+        <div class="hover-card" style="padding: 1rem; margin-bottom: 1.5rem;">
+          <img src="./static/images/frameworkv12.jpg" alt="DexGraspVLA Framework" class="fade-in" style="width: 80%; margin: 0 auto; display: block;">
+        </div>
+        <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+          <p><strong>Fig. 2: Overview of our framework.</strong> DexGraspVLA adopts a hierarchical architecture composed of an off-the-shelf VLM-based high-level 
+          <span style="color:#6a7bff; font-weight:bold;">planner</span> and a diffusion-based low-level <span style="color:#ff6b6b; font-weight:bold;">controller</span>. 
+          Given a cluttered scene, the <span style="color:#6a7bff; font-weight:bold;">planner</span> reasons about the user prompt, e.g., <i>"clear the table"</i>, decomposing it into multiple grasping instructions when necessary. 
+          For each instruction <i>l</i>, e.g., <i>"grasp the cookie"</i>, the <span style="color:#6a7bff; font-weight:bold;">planner</span> identifies the target object <i>A</i> from the head image <i>I<sub>t0</sub></i> 
+          and marks its bounding box <i>(x<sub>1</sub><sup>A</sup>, y<sub>1</sub><sup>A</sup>, x<sub>2</sub><sup>A</sup>, y<sub>2</sub><sup>A</sup>)</i> at initial time <i>t<sub>0</sub></i>.</p>
+
+          <p>The <span style="color:#ff6b6b; font-weight:bold;">controller</span> consists of four parts:</p>
+          <ol>
+            <li>Two segmentation models including SAM, which obtains the object's mask <i>m<sub>0</sub></i> at <i>t<sub>0</sub></i>, and Cutie, a video segmentation model that continuously tracks the mask <i>m<sub>t</sub></i> during each grasping process.</li>
+            <li>Three vision encoders including two frozen DINOv2 that extract features from the third-view image <i>I<sub>t</sub><sup>h</sup></i> and the first-view image <i>I<sub>t</sub><sup>v</sup></i>, and a trainable ViT that deals with the mask <i>m<sub>t</sub></i>.</li>
+            <li>Three MLP projectors that map the visual features and robot proprioceptive state into the same feature space, forming a feature sequence.</li>
+            <li>A DiT that predicts an action chunk from <i>a<sub>t</sub></i> to <i>a<sub>t+H−1</sub></i>.</li>
+          </ol>
+
+          <p>During the <span style="color:#ff6b6b; font-weight:bold;">controller</span>'s grasping process, the <span style="color:#6a7bff; font-weight:bold;">planner</span> monitors the execution, 
+          checks whether grasping succeeds, and assists re-grasping when failing. This process continues until the user prompt is fully completed.</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Framework. -->
+
+    <!-- Experimental Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experimental Results</h2>
+        <img src="./static/images/results_table.png" alt="Experimental Results Table">
+        <p class="is-size-5">Performance comparison across different settings and methods</p>
+      </div>
+    </div>
+    <!--/ Experimental Results. -->
+
+    <!-- Object Distribution. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 fancy-title">Object Distribution</h2>
+        
+        <div class="hover-card" style="padding: 1rem; margin-bottom: 1.5rem;">
+          <img src="./static/images/object.png" alt="Object Distribution" class="fade-in" style="width: 60%; margin: 0 auto; display: block;">
+          <p class="is-size-5 image-caption">Distribution of grasped objects across different categories</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Object Distribution. -->
+
+    <!-- DINO Feature Analysis. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">DINO Feature Analysis</h2>
+        <img src="./static/images/dino_analysis.jpg" alt="DINO Feature Analysis">
+        <p class="is-size-5">Analysis of DINO features across different environmental conditions</p>
+      </div>
+    </div>
+    <!--/ DINO Feature Analysis. -->
+
     <!-- Paper video. -->
     <!--/ Paper video. -->
   </div>
 </section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-
-  </div>
-</section>
-
 
 
 <footer class="footer">
