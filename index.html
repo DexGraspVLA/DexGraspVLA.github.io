@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping.">
-  <meta name="keywords" content="DexGraspVLA, Vision-Language-Action, Dexterous Grasping">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Object-Centric Dexterous Manipulation from Human Motion Data</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <script>
+        var task_map = {
+            "simple-object-manipulation": "simple_object_manipulation",
+            "visual-goal-reaching": "visual_goal_reaching",
+            "novel-concept-grounding": "novel_concept_grounding",
+            "one-shot-video-imitation": "one_shot_video_imitation",
+            "visual-constraint-satisfaction": "visual_constraint_satisfaction",
+            "visual-reasoning": "visual_reasoning"
+        };
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+        function updateDemoVideo(category) {
+            // var demo = document.getElementById("single-menu-demos").value;
+            var task = document.getElementById(category + "-menu-tasks").value;
+            var inst = document.getElementById(category + "-menu-instances").value;
 
-    gtag('js', new Date());
+            console.log(task_map[category], task, inst)
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+            var video = document.getElementById(category + "-single-task-video");
+            video.src = "assets/videos/demos/" +
+                task_map[category] +
+                "/" +
+                task +
+                "/" +
+                inst +
+                ".mp4";
+            video.playbackRate = 2.0;
+            video.play();
+        }
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.jpg">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://psibot.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-    </div>
-  </div>
-</nav>
-
-
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Yifan Zhong<sup>*</sup>,</span>
-            <span class="author-block">Xuchuan Huang<sup>*</sup>,</span>
-            <span class="author-block">Ruochong Li,</span>
-            <span class="author-block">Ceyao Zhang,</span>
-            <span class="author-block">Yaodong Yang,</span>
-            <span class="author-block">Yuanpei Chen</span>
-          </div>
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Object-Centric Dexterous Manipulation from Human Motion Data</h1>
+                    <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.corl2023.org/">CoRL 2024</a></h3>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                          <a target="_blank" href="https://cypypccpy.github.io/">Yuanpei Chen<sup>1, 2</sup></a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://www.chenwangjeremy.net/">Chen Wang<sup>1</sup></a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://www.yangyaodong.com/">Yaodong Yang<sup>2</sup></a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://profiles.stanford.edu/c-karen-liu">C. Karen Liu<sup>1</sup></a>
+                        </span>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Psibot</span>
           </div>
-
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block"><sup>1</sup>Stanford University, <sup>2</sup>Peking University  </span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/"
+                <a target="_blank" href="assets\images\2024_CoRL_DexMimic_arxiv"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -97,481 +93,454 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
 
+            <!-- Arxiv Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://arxiv.org/abs/2411.04005"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file"></i>
+                </span>
+                <span>ArXiv</span>
+              </a>
+            </span>
+
+            <!-- Video Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="https://youtu.be/2mmqQYO4KlY"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+            </span> -->
+            <!-- Twitter Link. -->
+            <!-- <span class="link-block">
+              <a href="https://twitter.com/chenwang_j/status/1699453998464667814" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-twitter"></i>
+                </span>
+                <span>Twitter</span>
+              </a>
+            </span> -->
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://cypypccpy.github.io/obj-dex.github.io/"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code (Coming Soon)</span>
+                </a>
+            </span>
+            </div>
           </div>
         </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop height="50%" width="50%">
+            <source src="assets/videos/grasp.mp4" type="video/mp4">
+          </video>
+          </br>
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+          We introduce a hierarchical framework that uses human hand motion data and deep reinforcement learning to train dexterous robot hands for effective object-centric manipulation in both simulation and real world.
+        </h2>
       </div>
     </div>
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- Paper video -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-build_pymarid">
+          <video poster="" id="build_pymarid" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-build_a_tower">
+          <video poster="" id="build_a_tower" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-Insert_a_red">
+          <video poster="" id="Insert_a_red" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-stack_two_cube">
+          <video poster="" id="stack_two_cube" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-disturbance">
+          <video poster="" id="disturbance" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-disturbance"></div>
+          <video poster="" id="disturbance" autoplay controls muted loop height="100%">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
-      <!-- /Paper video -->
-      
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">DexGraspVLA</span> is a hierarchical vision-language-action framework 
-        that combines pretrained vision-language models with diffusion-based policies for robust 
-        dexterous grasping.
+      </br>
+      Despite being trained only in simulation, our system demonstrates <b>zero-shot transfer</b> to two real-world robots equipped with the dexterous hand.
       </h2>
     </div>
   </div>
 </section>
 
-
-<!-- Video Gallery Section - Replaces the carousel section -->
-<section class="hero is-light is-small">
+<section class="hero is-light">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Video Demonstrations</h2>
-      
-      <!-- Video Categories Navigation -->
-      <div class="tabs is-centered" id="video-tabs">
-        <ul>
-          <li class="is-active" data-target="long-horizon"><a>Long-Horizon Tasks</a></li>
-          <li data-target="human-interference"><a>Human Interference</a></li>
-          <li data-target="regrasp-closeloop"><a>Regrasp (Close-Loop)</a></li>
-          <li data-target="lighting-generalization"><a>Lighting Generalization</a></li>
-          <li data-target="background-generalization"><a>Background Generalization</a></li>
-          <li data-target="small-objects"><a>Small Object Grasping</a></li>
-          <li data-target="basic-grasping"><a>Basic Grasping</a></li>
-        </ul>
-      </div>
-      
-      <!-- Video Content Sections -->
-      <!-- 1. Long-Horizon Tasks -->
-      <div id="long-horizon" class="video-content active">
-        <h3 class="subtitle has-text-centered mb-4">Long-Horizon Manipulation Tasks</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/long_horizon_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Clearing a table</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/long_horizon_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Sequential pick-and-place</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/long_horizon_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Multi-stage assembly</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/long_horizon_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Organizing objects</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 2. Human Interference -->
-      <div id="human-interference" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Robustness to Human Interference</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/human_interference_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Object moved during approach</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/human_interference_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Hand blocked during grasp</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/human_interference_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Object pulled during grasp</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/human_interference_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Recovery from disturbance</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 3. Regrasp (Close-Loop) -->
-      <div id="regrasp-closeloop" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Closed-Loop Regrasping Capability</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/regrasp_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Regrasp after slip</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/regrasp_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Regrasp after failed attempt</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/regrasp_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Progressive grip adjustment</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/regrasp_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Reorientation for better grasp</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 4. Lighting Generalization -->
-      <div id="lighting-generalization" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Robustness to Different Lighting Conditions</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/lighting_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Bright lighting</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/lighting_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Dim lighting</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/lighting_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Dynamic lighting changes</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/lighting_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Shadow conditions</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 5. Background Generalization -->
-      <div id="background-generalization" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Generalization Across Different Backgrounds</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/env_gen_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Office background</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/env_gen_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Kitchen background</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/env_gen_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Living room background</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/env_gen_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Lab background</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 6. Small Object Grasping -->
-      <div id="small-objects" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Small and Challenging Object Grasping</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/small_obj_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping small pins</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/small_obj_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping dice</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/small_obj_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping paper clips</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/small_obj_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping coins</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 7. Basic Grasping -->
-      <div id="basic-grasping" class="video-content">
-        <h3 class="subtitle has-text-centered mb-4">Basic Grasping Capabilities</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/basic_grasping_1.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping a coffee mug</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/basic_grasping_2.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping a teddy bear</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/basic_grasping_3.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping a ball</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="./static/videos/basic_grasping_4.mp4" type="video/mp4">
-              </video>
-              <p class="has-text-centered mt-2">Grasping a book</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 增加这一行来增加间距 -->
-<div style="margin-top: 3rem;"></div>
-
-<section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            Dexterous grasping remains a fundamental yet challenging problem in robotics. A general-purpose robot
-            must be capable of grasping diverse objects in arbitrary scenarios. However, existing research typically
-            relies on specific assumptions, such as single-object settings or limited environments, leading to constrained
-            generalization. Our solution is DexGraspVLA, a hierarchical framework that utilizes a pre-trained Vision-
-            Language model as the high-level task planner and
-            learns a diffusion-based policy as the low-level Action
-            controller. The key insight lies in iteratively transforming diverse language and visual inputs into domain-
-            invariant representations, where imitation learning
-            can be effectively applied due to the alleviation of
-            domain shift. Thus, it enables robust generalization
-            across a wide range of real-world scenarios. Notably,
-            our method achieves 90+% success rate under thousands of unseen object, lighting, and background
-            combinations in a "zero-shot" environment. Empirical
-            analysis further confirms the consistency of internal model behavior across environmental variations,
-            thereby validating our design and explaining its generalization performance. We hope our work can be a
-            step forward in achieving general dexterous grasping.
+          <p style="font-size: 125%">
+            Manipulating objects to achieve desired goal states is a basic but important skill for dexterous manipulation. Human hand motions demonstrate proficient manipulation capability, providing valuable data for training robots with multi-finger hands. Despite this potential, substantial challenges arise due to the embodiment gap between human and robot hands. In this work, we introduce a hierarchical policy learning framework that uses human hand motion data for training object-centric dexterous robot manipulation. At the core of our method is a high-level trajectory generative model, learned with a large-scale human hand motion capture dataset, to synthesize human-like wrist motions conditioned on the desired object goal states. Guided by the generated wrist motions, deep reinforcement learning is further used to train a low-level finger controller that is grounded in the robot's embodiment to physically interact with the object to achieve the goal. Through extensive evaluation across 10 household objects, our approach not only demonstrates superior performance but also showcases generalization capability to novel object geometries and goal states. Furthermore, we transfer the learned policies from simulation to a real-world bimanual dexterous robot system, further demonstrating its applicability in real-world scenarios.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+  </div>
+</div>
+</section>
 
-    <!-- Framework. -->
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 fancy-title">Framework</h2>
-        <div class="hover-card" style="padding: 1rem; margin-bottom: 1.5rem;">
-          <img src="./static/images/frameworkv12.jpg" alt="DexGraspVLA Framework" class="fade-in" style="width: 80%; margin: 0 auto; display: block;">
-        </div>
-        <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-          <p><strong>Fig. 2: Overview of our framework.</strong> DexGraspVLA adopts a hierarchical architecture composed of an off-the-shelf VLM-based high-level 
-          <span style="color:#6a7bff; font-weight:bold;">planner</span> and a diffusion-based low-level <span style="color:#ff6b6b; font-weight:bold;">controller</span>. 
-          Given a cluttered scene, the <span style="color:#6a7bff; font-weight:bold;">planner</span> reasons about the user prompt, e.g., <i>"clear the table"</i>, decomposing it into multiple grasping instructions when necessary. 
-          For each instruction <i>l</i>, e.g., <i>"grasp the cookie"</i>, the <span style="color:#6a7bff; font-weight:bold;">planner</span> identifies the target object <i>A</i> from the head image <i>I<sub>t0</sub></i> 
-          and marks its bounding box <i>(x<sub>1</sub><sup>A</sup>, y<sub>1</sub><sup>A</sup>, x<sub>2</sub><sup>A</sup>, y<sub>2</sub><sup>A</sup>)</i> at initial time <i>t<sub>0</sub></i>.</p>
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <br>
+          <img src="assets/images/method 1.jpg" class="interpolation-image"
+               alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
+               <div class="content has-text-justified">
+                <br>
+          <span style="font-size: 125%">
 
-          <p>The <span style="color:#ff6b6b; font-weight:bold;">controller</span> consists of four parts:</p>
-          <ol>
-            <li>Two segmentation models including SAM, which obtains the object's mask <i>m<sub>0</sub></i> at <i>t<sub>0</sub></i>, and Cutie, a video segmentation model that continuously tracks the mask <i>m<sub>t</sub></i> during each grasping process.</li>
-            <li>Three vision encoders including two frozen DINOv2 that extract features from the third-view image <i>I<sub>t</sub><sup>h</sup></i> and the first-view image <i>I<sub>t</sub><sup>v</sup></i>, and a trainable ViT that deals with the mask <i>m<sub>t</sub></i>.</li>
-            <li>Three MLP projectors that map the visual features and robot proprioceptive state into the same feature space, forming a feature sequence.</li>
-            <li>A DiT that predicts an action chunk from <i>a<sub>t</sub></i> to <i>a<sub>t+H−1</sub></i>.</li>
-          </ol>
+            <b>(A) Training:</b> Firstly, we use human motion capture data to train a generation model to synthesize dual hand trajectory conditions on object trajectory. Then we use the RL to train a low-level robot controller conditioned on the dual hand trajectory generated by the trained high-level planner. During this process we augment the data in simulation to improve the high-level planner and low-level controller simultaneously.
+            <!-- <b>(a).</b> A bi-directional optimization scheme consists of a <b><font color="#66b2ff">forward initialization</font></b> process and a <b><font color="#ff6666">backward fine-tuning</font></b> mechanism based on the transition feasibility function. <br> -->
+            <b>(B) Inference:</b> Given a single object goal trajectory, our framework generates dual hand reference trajectory and guides the low-level controller to accomplish the task.
 
-          <p>During the <span style="color:#ff6b6b; font-weight:bold;">controller</span>'s grasping process, the <span style="color:#6a7bff; font-weight:bold;">planner</span> monitors the execution, 
-          checks whether grasping succeeds, and assists re-grasping when failing. This process continues until the user prompt is fully completed.</p>
+            <!-- <b>(b).</b> The learned system is able to zero-shot transfer to the real world. The transition feasibility function serves as a policy-switching identifier to select the most appropriate policy to execute at each time step.</span> -->
         </div>
       </div>
     </div>
-    <!--/ Framework. -->
-
-    <!-- Experimental Results. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Experimental Results</h2>
-        <img src="./static/images/results_table.png" alt="Experimental Results Table">
-        <p class="is-size-5">Performance comparison across different settings and methods</p>
-      </div>
-    </div>
-    <!--/ Experimental Results. -->
-
-    <!-- Object Distribution. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 fancy-title">Object Distribution</h2>
-        
-        <div class="hover-card" style="padding: 1rem; margin-bottom: 1.5rem;">
-          <img src="./static/images/object.png" alt="Object Distribution" class="fade-in" style="width: 60%; margin: 0 auto; display: block;">
-          <p class="is-size-5 image-caption">Distribution of grasped objects across different categories</p>
-        </div>
-      </div>
-    </div>
-    <!--/ Object Distribution. -->
-
-    <!-- DINO Feature Analysis. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">DINO Feature Analysis</h2>
-        <img src="./static/images/dino_analysis.png" alt="DINO Feature Analysis" style="width: 70%; margin: 0 auto; display: block;">
-        <p class="is-size-5">Analysis of DINO features across different environmental conditions</p>
-      </div>
-    </div>
-    <!--/ DINO Feature Analysis. -->
-
-    <!-- Paper video. -->
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-            This page borrowed from <a href="https://nerfies.github.io/">https://nerfies.github.io/</a>
-          </p>
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- Generalization Videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments</h2>
         </div>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<!--Experiments-->
+<section class="section is-dark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+          <!-- <h2 class="title is-3"><span
+            class="dvima">Experiments</span></h2>
+          <br> -->
+          <h3 class="title is-4"><span
+            class="dvima">Environment Setups
+          </span></h3>
+
+          <img src="assets/images/workspace.jpg" class="interpolation-image"
+               alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
+               <div class="content has-text-justified">
+               <br>
+          <span style="font-size: 110%">
+            Overview of the environment setups: <br>
+            <b>(a).</b> Workspace of the simulation. We employ two Shadow Hands, each individually mounted on separate UR10e robots, arranged in an abreast configuration. <br>
+            <b>(b).</b> Object sets in the simulation and the real-world. <br>
+            <b>(c).</b> Workspace of the real-world, mirroring the simulation, the robot system uses the same Shadow Hands and UR10e robots as the simulation.
+            <!-- <b>(a).</b> Workspace of <b>Building Blocks</b> task in simulation and real-world. This long-horizon task includes four different subtasks: Searching for a block with desired dimension and color from a pile of cluttered blocks, Orienting the block to a favorable position, Grasping the block, and finally Inserting the block to its designated position on the structure. This sequence of actions repeats until the structure is completed according to the given assembly instructions. <br>
+            <b>(b).</b> The setup of the <b>Tool Positioning</b> task. Initially, the tool is placed on the table in a random pose, and the dexterous hand needs to grasp the tool and re-orient it to a ready-to-use pose. The comparison results illustrate how the way of grasping directly influences subsequent orientation. -->
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                  <h3 class="title is-4"><span
+                    class="dvima">Import Human Motion Capture Data to Simulation
+                  </span></h3>
+                  <br>
+                  <video poster="" autoplay controls muted loop width="900">
+                    <source src="assets/videos/grasp.mp4"
+                            type="video/mp4">
+                  </video>
+          <br>
+          <br>
+
+          <div class="content has-text-justified">
+            <span style="font-size: 110%">
+              The upper left video is the object goal trajectory input, and the upper right video is the high-level planner output (wrist motion generation).  
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+              <h3 class="title is-4"><span
+                class="dvima">Optimizing Human Mocap Data via Reinforcement Learning
+              </span></h3>
+              <br>
+              <video poster="" autoplay controls muted loop width="900">
+                <source src="assets/videos/grasp.mp4"
+                        type="video/mp4">
+              </video>
+      <br>
+      <br>
+
+      <div class="content has-text-justified">
+        <span style="font-size: 110%">
+          The upper left video is the object goal trajectory input, and the upper right video is the high-level planner output (wrist motion generation).  
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+          <h3 class="title is-4"><span
+            class="dvima">Learning Object-Centric Dexterous Manipulation in Isaac-Gym
+          </span></h3>
+          <br>
+          <video poster="" autoplay controls muted loop width="900">
+            <source src="assets/videos/grasp.mp4"
+                    type="video/mp4">
+          </video>
+  <br>
+  <br>
+
+  <div class="content has-text-justified">
+    <span style="font-size: 110%">
+      <b>Upper Left Video:</b> Object goal trajectories from Human Mocap Data (ARCTIC Dataset), which are the input of our policy. <br>
+      <b>Upper Right Video:</b> High-level planner output (wrist motion generation). Object motion replay for visualization. <br>
+      <b>Lower Video:</b> Low-level policy output (finger + wrist motion). Fully autonomous results, no object motion replay.
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column">
+        <!-- <h3 class="title is-4"><span
+          class="dvima">
+        </span></h3> -->
+        <br>
+        <video poster="" autoplay controls muted loop width="900">
+          <source src="assets/videos/grasp.mp4"
+                  type="video/mp4">
+        </video>
+<br>
+<br>
+
+</div>
+</div>
+</div>
+
+<div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column">
+        <br>
+        <video poster="" autoplay controls muted loop width="900">
+          <source src="assets/videos/grasp.mp4"
+                  type="video/mp4">
+        </video>
+<br>
+<br>
+
+<!-- <div class="content has-text-justified">
+  <span style="font-size: 110%">
+    The upper left video is the object goal trajectory input, and the upper right video is the high-level planner output (wrist motion generation).  
+</div> -->
+
+</div>
+</div>
+</div>
+
+<div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column">
+        <br>
+        <video poster="" autoplay controls muted loop width="900">
+          <source src="assets/videos/grasp.mp4"
+                  type="video/mp4">
+        </video>
+<br>
+<br>
+
+</div>
+</div>
+</div>
+
+<div class="container is-max-desktop"></div>
+  <div class="columns is-centered has-text-centered">
+    <div class="column">
+        <br>
+        <video poster="" autoplay controls muted loop width="900">
+          <source src="assets/videos/grasp.mp4"
+                  type="video/mp4">
+        </video>
+<br>
+<br>
+
+</div>
+</div>
+</div>
+
+
+    </div>
+
+                </div>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- Generalization Videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Additional Experiments</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Additional Experiments-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+          <!-- <h2 class="title is-3"><span
+            class="dvima">Additional Experiments</span></h2>
+          <br>
+          <h3 class="title is-4"><span
+            class="dvima">Qualitative results of the learned transition feasibility functions
+          </span></h3> -->
+
+          <img src="assets/images/multi_hand.png" class="interpolation-image"
+               alt="" style="display: block; margin-left: auto; margin-right: auto" width="700"/>
+               <div class="content has-text-justified">
+                <br>
+           <span style="font-size: 110%">
+                <b>Experiments on the different embodiment.</b> We apply our method to four different types of multi-fingered dexterous hands, varying in size and degree of freedom. Our method achieved more than 50% completion rate for all hands, demonstrating that our framework can effectively transfer human data to different robot hand embodiments.
+          <br>
+          <br>
+
+        </div>
+
+          <h3 class="title is-4"><span
+            class="dvima">Quantitative results in the Building Blocks task
+          </span></h3>
+
+          <img src="assets/images/qual_results.png" class="interpolation-image"
+               alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
+
+               <br>
+               <br>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- Generalization Videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Conclusion</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contribution-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+          <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            In this work, we present a hierarchical policy learning framework that effectively utilizes human hand motion data to train object-centric dexterous robot manipulation. At the core of our method is a high-level trajectory generative model trained with a large-scale human hand motion capture dataset, which synthesizes human-like wrist motions conditioned on the object goal trajectory. Guided by these wrist motions, we further trained an RL-based low-level finger controller to achieve the task goal. Our approach demonstrated superior performance across various household objects and showcased generalization capabilities to novel object geometries and goal trajectories. Moreover, the successful transfer of the learned policies from simulation to a real-world bimanual dexterous robot system underscores the practical applicability of our method in real-world scenarios.
+        </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{chenobject,
+      title={Object-Centric Dexterous Manipulation from Human Motion Data},
+      author={Chen, Yuanpei and Wang, Chen and Yang, Yaodong and Liu, Karen},
+      booktitle={8th Annual Conference on Robot Learning}
+    }</code></pre>
+  </div>
+</section>
+
 
 </body>
 </html>

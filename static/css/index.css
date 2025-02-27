@@ -1,5 +1,10 @@
+@import url(fontawesome-all.min.css);
+@import 'https://fonts.googleapis.com/css?family=Source Code Pro';
+@import 'https://fonts.googleapis.com/css?family=Open Sans';
+@import "myriad_pro.css";
+
 body {
-  font-family: 'Noto Sans', sans-serif;
+    font-family: "Myriad-Pro", "Open Sans", sans-serif;
 }
 
 
@@ -14,45 +19,62 @@ body {
 }
 
 .dnerf {
-  font-variant: small-caps;
+    font-variant: small-caps;
+}
+
+.dcliport {
+    font-variant: small-caps;
+}
+
+.dvima {
+    /* TODO specific VIMA font */
+    /* font-variant: small-caps; */
 }
 
 
 .teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
+    padding-top: 0;
+    padding-bottom: 3rem;
 }
 
 .teaser {
-  font-family: 'Google Sans', sans-serif;
+    font-family: "Myriad-Pro", "Open Sans", sans-serif;
 }
 
+.teaser video {
+    object-fit: fill;
+
+}
+
+#glass {
+    margin-left: -10px;
+}
 
 .publication-title {
 }
 
 .publication-banner {
-  max-height: parent;
+    max-height: parent;
 
 }
 
 .publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    object-fit: fit;
 }
 
 .publication-header .hero-body {
 }
 
 .publication-title {
-    font-family: 'Google Sans', sans-serif;
+    font-family: "Myriad-Pro", "Open Sans", sans-serif;
 }
 
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
+    font-family: "Myriad-Pro", "Open Sans", sans-serif;
 }
 
 .publication-venue {
@@ -74,19 +96,23 @@ body {
    color: hsl(204, 86%, 53%) !important;
 }
 
+.conference-authors a {
+    color: hsl(0, 0%, 16%) !important;
+}
+
 .publication-authors a:hover {
     text-decoration: underline;
 }
 
 .author-block {
-  display: inline-block;
+    display: inline-block;
 }
 
 .publication-banner img {
 }
 
 .publication-authors {
-  /*color: #4286f4;*/
+    /*color: #4286f4;*/
 }
 
 .publication-video {
@@ -111,89 +137,66 @@ body {
 }
 
 .results-carousel {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
+    margin: 5px;
+    overflow: hidden;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    padding: 0;
+    font-size: 0;
 }
 
 .results-carousel video {
-  margin: 0;
+    margin: 0;
 }
 
 
+.wrong-panel {
+    background: #cc0606;
+    border-radius: 10px;
+}
+
 .interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
+    background: #f5f5f5;
+    border-radius: 10px;
 }
 
 .interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
+    width: 100vh;
+    background-size: cover;
+    border-radius: 5px;
 }
 
 .interpolation-video-column {
 }
 
 .interpolation-panel .slider {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 
 .interpolation-panel .slider {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 
 #interpolation-image-wrapper {
-  width: 100%;
+    width: 100%;
 }
+
 #interpolation-image-wrapper img {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
-/* 视频展示部分的样式 */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  height: 0;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: #f5f5f5;
-  transition: transform 0.3s ease;
+#interpolation-image img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
-.video-container:hover {
-  transform: scale(1.02);
-}
-
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-content {
-  display: none;
-  margin-top: 2rem;
-}
-
-.video-content.active {
-  display: block;
-}
-
-#video-tabs li {
-  transition: all 0.3s ease;
-}
-
-#video-tabs li.is-active {
-  font-weight: bold;
-}
+.dropdown-item {
+    white-space: pre-wrap;
+}  

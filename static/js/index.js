@@ -1,6 +1,6 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "./static/interpolation/stacked";
+var INTERP_BASE = "https://homes.cs.washington.edu/~kpar/nerfies/interpolation/stacked";
 var NUM_INTERP_FRAMES = 240;
 
 var interp_images = [];
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     var options = {
 			slidesToScroll: 1,
-			slidesToShow: 3,
+			slidesToShow: 2,
 			loop: true,
 			infinite: true,
 			autoplay: false,
@@ -58,13 +58,6 @@ $(document).ready(function() {
     	});
     }
 
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
@@ -74,26 +67,8 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
-    
-    // 视频标签页功能
-    const tabs = document.querySelectorAll('#video-tabs li');
-    
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // 移除所有标签的active类
-        tabs.forEach(t => t.classList.remove('is-active'));
-        
-        // 为当前标签添加active类
-        tab.classList.add('is-active');
-        
-        // 隐藏所有内容部分
-        document.querySelectorAll('.video-content').forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        // 显示目标内容
-        const target = tab.getAttribute('data-target');
-        document.getElementById(target).classList.add('active');
-      });
-    });
+
+    document.getElementById("single-task-result-video").playbackRate = 2.0;
+    document.getElementById("multi-task-result-video").playbackRate = 2.0;
 })
+
