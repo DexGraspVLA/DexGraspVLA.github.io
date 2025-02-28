@@ -57,6 +57,8 @@
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -80,6 +82,9 @@
                           <a target="_blank" href="https://scholar.google.com/citations?user=OadTFGMAAAAJ&hl=zh-CN">Ceyao Zhang</a><sup>1,2</sup>,
                         </span>
                         <span class="author-block">
+                          <a target="_blank" href="https://scholar.google.com/citations?user=KVzR1XEAAAAJ&hl=en">Yitao Liang</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
                           <a target="_blank" href="https://www.yangyaodong.com/">Yaodong Yang</a><sup>1,2†</sup>,
                         </span>
                         <span class="author-block">
@@ -98,7 +103,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a target="_blank" href="https://dexgraspvla.github.io/"
+                <a target="_blank" href="assets/paper/DexGraspVLA.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -154,25 +159,27 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-fullhd">
+  <div class="container">
     <div class="hero-body">
-      <div class="container">
-        <div class="columns is-vcentered  is-centered">
-          <video id="teaser" autoplay muted loop height="50%" width="50%">
-            <source src="assets/videos/grasp.mp4" type="video/mp4">
-          </video>
-          </br>
+      <!-- Paper video -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px; width: 900px; margin-left: auto; margin-right: auto;">
+            <iframe 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+              src="https://www.youtube.com/embed/X0Sq7q-bfI8"
+              frameborder="0" 
+              allow="autoplay; encrypted-media" 
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
-        <br>
-        <h2 class="subtitle has-text-centered">
-          We introduce a hierarchical framework that uses human hand motion data and deep reinforcement learning to train dexterous robot hands for effective object-centric manipulation in both simulation and real world.
-        </h2>
       </div>
-    </div>
+      <!-- /Paper video -->
   </div>
 </section>
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -219,7 +226,7 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="hero is-light">
   <div class="hero-body">
@@ -230,7 +237,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p style="font-size: 125%">
-            Manipulating objects to achieve desired goal states is a basic but important skill for dexterous manipulation. Human hand motions demonstrate proficient manipulation capability, providing valuable data for training robots with multi-finger hands. Despite this potential, substantial challenges arise due to the embodiment gap between human and robot hands. In this work, we introduce a hierarchical policy learning framework that uses human hand motion data for training object-centric dexterous robot manipulation. At the core of our method is a high-level trajectory generative model, learned with a large-scale human hand motion capture dataset, to synthesize human-like wrist motions conditioned on the desired object goal states. Guided by the generated wrist motions, deep reinforcement learning is further used to train a low-level finger controller that is grounded in the robot's embodiment to physically interact with the object to achieve the goal. Through extensive evaluation across 10 household objects, our approach not only demonstrates superior performance but also showcases generalization capability to novel object geometries and goal states. Furthermore, we transfer the learned policies from simulation to a real-world bimanual dexterous robot system, further demonstrating its applicability in real-world scenarios.
+            Dexterous grasping remains a fundamental yet challenging problem in robotics. A general-purpose robot must be capable of grasping diverse objects in arbitrary scenarios. However, existing research typically relies on specific assumptions, such as single-object settings or limited environments, leading to constrained generalization. Our solution is DexGraspVLA, a hierarchical framework that utilizes a pre-trained Vision-Language model as the high-level task planner and learns a diffusion-based policy as the low-level Action controller. The key insight lies in iteratively transforming diverse language and visual inputs into domain-invariant representations, where imitation learning can be effectively applied due to the alleviation of domain shift. Thus, it enables robust generalization across a wide range of real-world scenarios. Notably, our method achieves a 90+% success rate under thousands of unseen object, lighting, and background combinations in a "zero-shot" environment. Empirical analysis further confirms the consistency of internal model behavior across environmental variations, thereby validating our design and explaining its generalization performance. We hope our work can be a step forward in achieving general dexterous grasping.
           </p>
         </div>
       </div>
@@ -245,18 +252,27 @@
       <div class="column">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
-          <br>
-          <img src="assets/images/method 1.jpg" class="interpolation-image"
+          <img src="assets/images/method.jpg" class="interpolation-image"
                alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
                <div class="content has-text-justified">
-                <br>
-          <span style="font-size: 125%">
-
-            <b>(A) Training:</b> Firstly, we use human motion capture data to train a generation model to synthesize dual hand trajectory conditions on object trajectory. Then we use the RL to train a low-level robot controller conditioned on the dual hand trajectory generated by the trained high-level planner. During this process we augment the data in simulation to improve the high-level planner and low-level controller simultaneously.
-            <!-- <b>(a).</b> A bi-directional optimization scheme consists of a <b><font color="#66b2ff">forward initialization</font></b> process and a <b><font color="#ff6666">backward fine-tuning</font></b> mechanism based on the transition feasibility function. <br> -->
-            <b>(B) Inference:</b> Given a single object goal trajectory, our framework generates dual hand reference trajectory and guides the low-level controller to accomplish the task.
-
-            <!-- <b>(b).</b> The learned system is able to zero-shot transfer to the real world. The transition feasibility function serves as a policy-switching identifier to select the most appropriate policy to execute at each time step.</span> -->
+                <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+                  <p>DexGraspVLA adopts a hierarchical architecture composed of an off-the-shelf VLM-based high-level 
+                  <span style="color:#6a7bff; font-weight:bold;">planner</span> and a diffusion-based low-level <span style="color:#ff6b6b; font-weight:bold;">controller</span>. 
+                  Given a cluttered scene, the <span style="color:#6a7bff; font-weight:bold;">planner</span> reasons about the user prompt, e.g., <i>"clear the table"</i>, decomposing it into multiple grasping instructions when necessary. 
+                  For each instruction \(l\), e.g., <i>"grasp the cookie"</i>, the <span style="color:#6a7bff; font-weight:bold;">planner</span> identifies the target object \(A\) from the head image \(\mathbf{I}_{t_0}\) 
+                  and marks its bounding box \((x_1^A, y_1^A, x_2^A, y_2^A)\) at initial time \(t_0\).</p>
+        
+                  <p>The <span style="color:#ff6b6b; font-weight:bold;">controller</span> consists of four parts:</p>
+                  <ol>
+                    <li>Two segmentation models including SAM, which obtains the object's mask \(\mathbf{m}_{t_0}\) at \(t_0\), and Cutie, a video segmentation model that continuously tracks the mask \(\mathbf{m}_t\) during each grasping process.</li>
+                    <li>Three vision encoders including two frozen DINOv2 that extract features from the third-view head-camera image \(\mathbf{I}_t^h\) and the first-view wrist-camera image \(\mathbf{I}_t^w\), and a trainable ViT that deals with the mask \(\mathbf{m}_t\).</li>
+                    <li>Three MLP projectors that map the visual features and robot proprioceptive state into the same feature space, forming a feature sequence.</li>
+                    <li>A DiT that predicts an action chunk from \(\mathbf{a}_t\) to \(\mathbf{a}_{t+H-1}\).</li>
+                  </ol>
+        
+                  <p>During the <span style="color:#ff6b6b; font-weight:bold;">controller</span>'s grasping process, the <span style="color:#6a7bff; font-weight:bold;">planner</span> monitors the execution, 
+                  checks whether grasping succeeds, and assists re-grasping when failing. This process continues until the user prompt is fully completed.</p>
+                </div>
         </div>
       </div>
     </div>
@@ -271,20 +287,6 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Experiments</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--Experiments-->
-<section class="section is-dark">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-          <!-- <h2 class="title is-3"><span
-            class="dvima">Experiments</span></h2>
-          <br> -->
           <h3 class="title is-4"><span
             class="dvima">Environment Setups
           </span></h3>
@@ -460,7 +462,7 @@
   </div>
 </section>
 
-<section class="hero is-light">
+<section class="hero">
   <div class="hero-body">
     <div class="container is-max-widescreen">
       <!-- Generalization Videos -->
@@ -520,16 +522,6 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Conclusion</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--Contribution-->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
       <div class="column">
           <div class="content has-text-justified">
           <p style="font-size: 125%">
@@ -543,7 +535,7 @@
   </div>
 </section>
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-widescreen content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{chenobject,
@@ -552,7 +544,7 @@
       booktitle={8th Annual Conference on Robot Learning}
     }</code></pre>
   </div>
-</section>
+</section> -->
 
 
 </body>
