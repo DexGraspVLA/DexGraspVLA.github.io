@@ -111,6 +111,15 @@
                   <span>Paper</span>
                 </a>
               </span>
+              <span class="link-block">
+                <a target="_blank" href="https://www.youtube.com/watch?v=X0Sq7q-bfI8"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
 
             <!-- Arxiv Link. -->
             <!-- <span class="link-block">
@@ -272,6 +281,7 @@
         
                   <p>During the <span style="color:#ff6b6b; font-weight:bold;">controller</span>'s grasping process, the <span style="color:#6a7bff; font-weight:bold;">planner</span> monitors the execution, 
                   checks whether grasping succeeds, and assists re-grasping when failing. This process continues until the user prompt is fully completed.</p>
+                  <p>The <span style="color:#ff6b6b; font-weight:bold;">controller</span> is trained on a dataset consisting of 2,094 successful grasping episodes in cluttered scenes. These demonstrations are collected at typical human motion speeds, with each episode taking approximately 3.5 seconds. In total, this amounts to roughly two hours of data.</p>
                 </div>
         </div>
       </div>
@@ -288,31 +298,98 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Experiments</h2>
           <h3 class="title is-4"><span
-            class="dvima">Environment Setups
+            class="dvima">Large-Scale Generalization Evaluation
           </span></h3>
-
-          <img src="assets/images/workspace.jpg" class="interpolation-image"
-               alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
-               <div class="content has-text-justified">
-               <br>
-          <span style="font-size: 110%">
-            Overview of the environment setups: <br>
-            <b>(a).</b> Workspace of the simulation. We employ two Shadow Hands, each individually mounted on separate UR10e robots, arranged in an abreast configuration. <br>
-            <b>(b).</b> Object sets in the simulation and the real-world. <br>
-            <b>(c).</b> Workspace of the real-world, mirroring the simulation, the robot system uses the same Shadow Hands and UR10e robots as the simulation.
-            <!-- <b>(a).</b> Workspace of <b>Building Blocks</b> task in simulation and real-world. This long-horizon task includes four different subtasks: Searching for a block with desired dimension and color from a pile of cluttered blocks, Orienting the block to a favorable position, Grasping the block, and finally Inserting the block to its designated position on the structure. This sequence of actions repeats until the structure is completed according to the given assembly instructions. <br>
-            <b>(b).</b> The setup of the <b>Tool Positioning</b> task. Initially, the tool is placed on the table in a random pose, and the dexterous hand needs to grasp the tool and re-orient it to a ready-to-use pose. The comparison results illustrate how the way of grasping directly influences subsequent orientation. -->
-          <br>
-          <br>
-        </div>
+          <div class="content has-text-justified">
+            <img src="./assets/images/experiment-setup.jpg" class="interpolation-image"
+                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
+                  <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+                      <p>
+                        To thoroughly evaluate the <strong>generalization performance</strong> of DexGraspVLA, we curate 
+                        (a) <strong>360 unseen objects</strong> covering a diverse range of sizes, weights, geometries, textures, materials, and categories, 
+                        and (b) <strong>3 unseen lighting conditions</strong> and <strong>6 unseen backgrounds</strong> that significantly differ from the training data.
+                    </p>
+                    <p>
+                        Based on this setup, we design <strong>three types of grasping tasks</strong> in <strong>cluttered scenes</strong>, with each scene containing approximately six objects. 
+                        The tasks involve grasping an unseen object from a random scene under the following conditions:
+                    </p>
+                    <ul>
+                        <li><strong>Unseen Objects</strong>: on a white table under white light.</li>
+                        <li><strong>Unseen Backgrounds</strong>: on an unseen background under white light.</li>
+                        <li><strong>Unseen Lightings</strong>: on a white table under an unseen lighting condition.</li>
+                    </ul>
+                    <p>
+                        In total, we generate <strong>over 1,200 unseen cluttered scenes</strong> in a <strong>zero-shot environment</strong> to rigorously test our method.
+                    </p>
+                    
+                  </div>
+                  <img src="./assets/images/generalization.jpg" class="interpolation-image"
+                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="500"/>
+                 <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+                    <p>
+                      The table above presents the success rate of DexGraspVLA, where "Ours@\(k\)" denotes its performance when each test is given \(k\) attempts. DexGraspVLA achieves a <strong>91.1% single-attempt success rate</strong> on <i>Unseen Objects</i>, 
+                      <strong>90.5%</strong> on <i>Unseen Backgrounds</i>, and <strong>90.9%</strong> on <i>Unseen Lightings</i>,
+                      with an overall success rate of <strong>90.8%</strong>. These results demonstrate its ability to grasp specified 
+                      objects from clutter while remaining robust to environmental changes—all without domain-specific fine-tuning.
+                  </p>
+                  <p>
+                      Notably, despite operating in unseen environments and tasks, DexGraspVLA maintains high success rates, 
+                      addressing a key challenge in imitation learning: overfitting to a single domain. It dexterously adjusts 
+                      to varying object geometries, sizes, and positions, and its closed-loop policy enables re-grasps, 
+                      improving robustness. The method also withstands human-induced perturbations, tracking and securing moving 
+                      objects until a successful grasp is achieved.
+                  </p>
+                  <p>
+                      With <strong>multiple attempts</strong>, performance further improves—<strong>reaching 96.9% success within three tries</strong>. 
+                      Additionally, our model takes <strong>~6 seconds per grasp</strong>, comparable to human efficiency, ensuring practical 
+                      real-world usability.
+                  </p>
+                </div>
       </div>
+      <h3 class="title is-4"><span
+        class="dvima">Comparison to Baselines on A Single-Object Grasping Benchmark
+      </span></h3>
+      <div class="content has-text-justified">
+              <img src="./assets/images/single-object.jpg" class="interpolation-image"
+             alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+             <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+                <p>
+                    To compare DexGraspVLA with baselines whose controllers learn directly from raw visual inputs, we conduct 
+                    <strong>single-object grasping experiments</strong> on <strong>13 seen objects</strong> and <strong>8 unseen objects</strong>. 
+                    Each object is placed at <strong>five different table locations</strong>, ensuring coverage of the workspace and the robot's reach. 
+                    At each location, the policy attempts <strong>two independent grasps</strong>, totaling <strong>210 tests</strong> under consistent 
+                    environmental conditions (white tabletop and lighting, in a <strong>zero-shot environment</strong>).
+                </p>
+                <p>
+                    DexGraspVLA achieves <strong>over 98% success</strong> on both seen and unseen objects, significantly outperforming alternatives. 
+                    Notably, it even performs slightly better on unseen objects, confirming that it generalizes beyond training data rather than overfitting. 
+                    In contrast, baseline models struggle in the novel environment, as they directly map raw inputs to actions and are sensitive to perceptual shifts.
+                </p>
+            
+            </div>
+  </div>
+
+  <h3 class="title is-4"><span
+    class="dvima">Internal Model Behavior Analysis
+  </span></h3>
+  <div class="content has-text-justified">
+          <img src="./assets/images/analysis.jpg" class="interpolation-image"
+         alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+         <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+            <p>
+              We analyze the internal model behavior of DexGraspVLA to show that it <strong> is robust to environmental variations.</strong> The first row in the figure above presents the cropped raw head images of the same cluttered objects in four different environments: a white table, a calibration board, a tablecloth, and a tablecloth under disco light. The second row shows that the <strong>DINOv2 features</strong> of images are consistent across variations. The third row is the <strong>masks</strong> of the target objects accurately tracked by Cutie. The fourth row reflects that the averaged <strong>attention maps</strong> of DiT to head image features are also consistent regardless of perceptual differences. The fifth row confirms DexGraspVLA is attending to the correct object. Therefore, we substantiate that DexGraspVLA indeed transforms perceptually diverse raw inputs into invariant representations, on which it effectively applies imitation learning to model the data distribution, explaining its <strong>superior generalization performance</strong>.
+            </p>
+        
+        </div>
+</div>
+
     </div>
   </div>
           <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
               <div class="column">
                   <h3 class="title is-4"><span
-                    class="dvima">Import Human Motion Capture Data to Simulation
+                    class="dvima"> Performance Demonstrations
                   </span></h3>
                   <br>
                   <video poster="" autoplay controls muted loop width="900">
@@ -330,6 +407,104 @@
         </div>
         </div>
       </div>
+
+      <!-- <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h4 class="title is-5"><span
+              class="dvima">Tool Positioning task
+            </span></h4>
+
+          <div class="columns is-centered">
+                  <div class="item item-sweep_without_touching">
+                    <video poster="" id="sweep_without_touching" autoplay controls muted loop height="100%"
+                           playbackRate=2.0>
+                      <source src="assets/videos/Policy_seq_hammer_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-rotate">
+                    <video poster="" id="rotate" autoplay controls muted loop height="100%">
+                      <source src="assets/videos/Ours_hammer_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Hammer - Policy-Seq [10]</h2>
+                    </div>
+                  </div>
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Hammer - Ours</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+
+                  <div class="item item-scene_understanding">
+                    <video poster="" id="scene_understanding" autoplay controls muted loop height="100%">
+                      <source src="assets/videos/spata_polseq_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-simple_manipulation">
+                    <video poster="" id="simple_manipulation" autoplay controls muted loop height="100%">
+                      <source src="assets/videos/ours_spatula_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Spatula (Unseen) - Policy-Seq [10]</h5>
+                    </div>
+                  </div>
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Spatula (Unseen) - Ours</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="item item-scene_understanding">
+                    <video poster="" id="scene_understanding" autoplay controls muted loop height="100%">
+                      <source src="assets/videos/soup_polseq_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-simple_manipulation">
+                    <video poster="" id="simple_manipulation" autoplay controls muted loop height="100%">
+                      <source src="assets/videos/ours_spoon_x4.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Spoon (Unseen) - Policy-Seq [10]</h2>
+                    </div>
+                  </div>
+                  <div class="column has-text-centered">
+                    <div class="content">
+                      <h5 class="title is-5">Spoon (Unseen) - Ours</h2>
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+ -->
 
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
@@ -358,7 +533,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column">
           <h3 class="title is-4"><span
-            class="dvima">Learning Object-Centric Dexterous Manipulation in Isaac-Gym
+            class="dvima">Quantitative Evaluations
           </span></h3>
           <br>
           <video poster="" autoplay controls muted loop width="900">
