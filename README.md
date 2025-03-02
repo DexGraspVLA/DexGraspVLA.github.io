@@ -1,1 +1,1 @@
-# sequential-dexterity.github.io
+# DexGraspVLA.github.io
