@@ -53,14 +53,25 @@
     <link rel="stylesheet" href="./static/css/index.css">
 
     <style>
-        .content.has-text-justified p {
-            font-size: 120%; 
-        }
+      .content.has-text-justified p,
+      .content.has-text-justified ul,
+      .content.has-text-justified ol {
+          font-size: 120%;  /* 可以调整这个百分比来改变大小 */
+      }
 
-        .hover-card p {
-            font-size: 120%;
-        }
-    </style>
+      .content.has-text-justified li {
+        font-size: inherit;  /* 继承父元素的字体大小 */
+      }
+      
+      .hover-card p,
+      .hover-card ul,
+      .hover-card ol {
+          font-size: 120%;
+      }
+      .hover-card li {
+        font-size: inherit;
+    }
+  </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -418,7 +429,7 @@
                   </div>
                   <div class="column">
                     <video poster="" autoplay controls muted loop width="400">
-                      <source src="assets/videos/normal/garbagebag-converted.mp4" type="video/mp4">
+                      <source src="assets/videos/normal/honey.mp4" type="video/mp4">
                     </video>
                   </div>
                 </div>
@@ -430,7 +441,7 @@
                   </div>
                   <div class="column">
                     <video poster="" autoplay controls muted loop width="400">
-                      <source src="assets/videos/normal/sauce-converted.mp4" type="video/mp4">
+                      <source src="assets/videos/normal/garbagebag-converted.mp4" type="video/mp4">
                     </video>
                   </div>
                 </div>
@@ -595,20 +606,6 @@
                   </div>
                 </div>
               </div>
-              <br>
-              <br>
-              <h3 class="title is-4"><span
-                class="dvima">Difficult Grasping Poses
-              </span></h3>
-              <div class="container is-max-desktop">
-                    <div class="columns is-centered">
-                      <div class="column">
-                        <video poster="" autoplay controls muted loop width="600">
-                          <source src="assets/videos/difficult-pose/difficult-honey.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                    </div>
-                </div>
               <br>
               <br>
               <h3 class="title is-4"><span
