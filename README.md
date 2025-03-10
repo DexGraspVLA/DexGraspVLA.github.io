@@ -1,1 +1,1 @@
-# DexGraspVLA.github.io
+# Website for DexGraspVLA
