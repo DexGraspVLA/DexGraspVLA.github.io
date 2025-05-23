@@ -344,7 +344,7 @@
                     
                   </div>
                   <img src="./assets/images/generalization.jpg" class="interpolation-image"
-                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="500"/>
+                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
                  <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
                     <p>
                       The table above presents the success rate of DexGraspVLA, where "Ours@\(k\)" denotes its performance when each test is given \(k\) attempts. DexGraspVLA achieves a <strong>91.1% single-attempt success rate</strong> on <i>Unseen Objects</i>, 
@@ -402,6 +402,39 @@
         
         </div>
 </div>
+
+
+<h3 class="title is-4"><span
+  class="dvima">Long-Horizon Task Evaluation
+</span></h3>
+<div class="content has-text-justified">
+        <img src="./assets/images/long-horizon.jpg" class="interpolation-image"
+       alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+       <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+          <p>
+            To evaluate DexGraspVLA's capability on complex, long-horizon tasks, we design four user prompts: "Clear the table", "Grasp all bottles", "Grasp all green objects", and "Grasp all food". These prompts require common-sense and physical knowledge to identify appropriate grasping targets sequentially. For each prompt, we generate 24 cluttered scenes using unseen objects placed on a white tabletop under white lighting. Tasks involve grasping multiple relevant targets in sequence, requiring both high-level planning and precise low-level control.
+          </p>
+          <p>
+            DexGraspVLA achieves an overall task success rate of <strong>89.6%</strong>, completing all stages of the multi-step prompts reliably. The high-level planner accurately proposes current grasping instructions (<strong>94.3% success</strong> on average), marks bounding boxes with over <strong>98% accuracy</strong>, and detects task completion to avoid redundant actions (<strong>94+% accuracy</strong>). The low-level controller executes grasps with over <strong>91% success</strong>, enabling robust step-by-step task execution. These results underscore DexGraspVLA's strong reasoning capability, perceptual grounding, and action reliability—working in synergy to complete long-horizon tasks without any task-specific training.
+          </p>
+      
+      </div>
+</div>
+
+<h3 class="title is-4"><span
+  class="dvima">Extended Application to Nonprehensile Grasping
+</span></h3>
+<div class="content has-text-justified">
+        <img src="./assets/images/non-prehensile.jpg" class="interpolation-image"
+       alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+       <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
+          <p>
+            To test its generality, we extend DexGraspVLA to nonprehensile grasping, which requires object repositioning before lifting, by applying the same hierarchical framework without architectural changes. Trained on over 1,000 demonstrations with flat, hard-to-grasp objects, DexGraspVLA achieves 84.7% success on 144 tests with 18 unseen objects across novel lighting and background conditions. It learns to push objects toward the table edge before executing a stable grasp, showing robust generalization to shape, texture, and pose variations. This result highlights DexGraspVLA's flexibility in handling complex manipulation skills beyond dexterous grasping, and its generality in both perception and control.
+          </p>
+
+      </div>
+</div>
+
 
     </div>
   </div>
