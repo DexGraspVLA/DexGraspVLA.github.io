@@ -103,6 +103,21 @@
                           <a target="_blank" href="https://scholar.google.com/citations?user=OadTFGMAAAAJ&hl=zh-CN">Ceyao Zhang</a><sup>1,2</sup>,
                         </span>
                         <span class="author-block">
+                          <a target="_blank" href="https://dexgraspvla.github.io/">Zhang Chen</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://dexgraspvla.github.io/">Tianrui Guan</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://dexgraspvla.github.io/">Fanlian Zeng</a><sup>4,2</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://dexgraspvla.github.io/">Ka Nam Lui</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://dexgraspvla.github.io/">Yuyao Ye</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
                           <a target="_blank" href="https://scholar.google.com/citations?user=KVzR1XEAAAAJ&hl=en">Yitao Liang</a><sup>1,2</sup>,
                         </span>
                         <span class="author-block">
@@ -114,7 +129,7 @@
 
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Institute for AI, Peking University, <sup>2</sup>PKU-PsiBot Joint Lab, <sup>3</sup>HKUST (Guangzhou)</span>
+            <span class="author-block"><sup>1</sup>Institute for AI, Peking University, <sup>2</sup>PKU-PsiBot Joint Lab, <sup>3</sup>HKUST (Guangzhou)</span>, <sup>4</sup>University of Pennsylvania</span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>*</sup>Equal contribution, <sup>†</sup>Corresponding authors</span>
@@ -142,7 +157,7 @@
                   </a>
               </span>
               <span class="link-block">
-                <a target="_blank" href="https://www.youtube.com/watch?v=Jp7nDc7Y2m0"
+                <a target="_blank" href="https://www.youtube.com/watch?v=ucm3I2iHHaI"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -197,7 +212,7 @@
           <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px; width: 900px; margin-left: auto; margin-right: auto;">
             <iframe 
               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-              src="https://www.youtube.com/embed/Jp7nDc7Y2m0"
+              src="https://www.youtube.com/embed/ucm3I2iHHaI"
               frameborder="0" 
               allow="autoplay; encrypted-media" 
               allowfullscreen>
@@ -267,7 +282,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p style="font-size: 125%">
-            Dexterous grasping remains a fundamental yet challenging problem in robotics. A general-purpose robot must be capable of grasping diverse objects in arbitrary scenarios. However, existing research typically relies on restrictive assumptions, such as single-object settings or limited environments, leading to constrained generalization. We present DexGraspVLA, a hierarchical framework for general dexterous grasping in cluttered scenes based on RGB image perception and language instructions. It utilizes a pre-trained Vision-Language model as the high-level task planner and learns a diffusion-based policy as the low-level Action controller. The key insight to achieve robust generalization lies in iteratively transforming diverse language and visual inputs into domain-invariant representations via foundation models, where imitation learning can be effectively applied due to the alleviation of domain shift. Notably, our method achieves a 90+% success rate under thousands of unseen object, lighting, and background combinations in a “zero-shot” environment. Empirical analysis confirms the consistency of internal model behavior across environmental variations, thereby validating our design and explaining its generalization performance. DexGraspVLA also demonstrates free-form long-horizon prompt execution, robustness to adversarial objects and human disturbance, and failure recovery, which are rarely achieved simultaneously in prior work. Extended application to nonprehensile object grasping further proves its generality.
+            Dexterous grasping remains a fundamental yet challenging problem in robotics. A general-purpose robot must be capable of grasping diverse objects in arbitrary scenarios. However, existing research typically relies on restrictive assumptions, such as single-object settings or limited environments, showing constrained <i>generalization</i>. We present <strong>DexGraspVLA</strong>, a hierarchical framework for robust generalization in language-guided general <strong>dex</strong>terous <strong>grasp</strong>ing and beyond. It utilizes a pre-trained <strong>V</strong>ision-<strong>L</strong>anguage model as the high-level planner and learns a diffusion-based low-level <strong>A</strong>ction controller. The key insight to achieve <i>generalization</i> lies in iteratively transforming diverse language and visual inputs into domain-invariant representations via foundation models, where imitation learning can be effectively applied due to the alleviation of domain shift. Notably, our method achieves a <i>90+%</i> dexterous grasping success rate under <i>thousands of</i> challenging unseen cluttered scenes. Empirical analysis confirms the <i>consistency</i> of internal model behavior across environmental <i>variations</i>, validating our design. DexGraspVLA also, for the first time, simultaneously demonstrates free-form long-horizon prompt execution, robustness to adversarial objects and human disturbance, and failure recovery. Extended application to nonprehensile grasping further proves its generality.
           </p>
         </div>
       </div>
@@ -309,138 +324,7 @@
   </div>
 </section>
 
-
 <section class="hero is-light">
-  <div class="hero-body">
-    <div class="container is-max-widescreen">
-      <!-- Generalization Videos -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Experiments</h2>
-          <h3 class="title is-4"><span
-            class="dvima">Large-Scale Generalization Evaluation
-          </span></h3>
-          <div class="content has-text-justified">
-            <img src="./assets/images/experiment-setup.jpg" class="interpolation-image"
-                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="900"/>
-                  <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-                      <p>
-                        To thoroughly evaluate the <strong>generalization performance</strong> of DexGraspVLA, we curate 
-                        (a) <strong>360 unseen objects</strong> covering a diverse range of sizes, weights, geometries, textures, materials, and categories, 
-                        and (b) <strong>3 unseen lighting conditions</strong> and <strong>6 unseen backgrounds</strong> that significantly differ from the training data.
-                    </p>
-                    <p>
-                        Based on this setup, we design <strong>three types of grasping tasks</strong> in <strong>cluttered scenes</strong>, with each scene containing approximately six objects. 
-                        The tasks involve grasping an unseen object from a random scene under the following conditions:
-                    </p>
-                    <ul>
-                        <li><strong>Unseen Objects</strong>: on a white table under white light.</li>
-                        <li><strong>Unseen Backgrounds</strong>: on an unseen background under white light.</li>
-                        <li><strong>Unseen Lightings</strong>: on a white table under an unseen lighting condition.</li>
-                    </ul>
-                    <p>
-                        In total, we generate <strong>over 1,200 unseen cluttered scenes</strong> in a <strong>zero-shot environment</strong> to rigorously test our method.
-                    </p>
-                    
-                  </div>
-                  <img src="./assets/images/generalization.jpg" class="interpolation-image"
-                 alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
-                 <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-                    <p>
-                      The table above presents the success rate of DexGraspVLA, where "Ours@\(k\)" denotes its performance when each test is given \(k\) attempts. DexGraspVLA achieves a <strong>91.1% single-attempt success rate</strong> on <i>Unseen Objects</i>, 
-                      <strong>90.5%</strong> on <i>Unseen Backgrounds</i>, and <strong>90.9%</strong> on <i>Unseen Lightings</i>,
-                      with an overall success rate of <strong>90.8%</strong>. These results demonstrate its ability to grasp specified 
-                      objects from clutter while remaining robust to environmental changes—all without domain-specific fine-tuning.
-                  </p>
-                  <p>
-                      Notably, despite operating in unseen environments and tasks, DexGraspVLA maintains high success rates, 
-                      addressing a key challenge in imitation learning: overfitting to a single domain. It dexterously adjusts 
-                      to varying object geometries, sizes, and positions, and its closed-loop policy enables re-grasps, 
-                      improving robustness. The method also withstands human-induced perturbations, tracking and securing moving 
-                      objects until a successful grasp is achieved.
-                  </p>
-                  <p>
-                      With <strong>multiple attempts</strong>, performance further improves—<strong>reaching 96.9% success within three tries</strong>. 
-                      Additionally, our model takes <strong>~6 seconds per grasp</strong>, comparable to human efficiency, ensuring practical 
-                      real-world usability.
-                  </p>
-                </div>
-      </div>
-      <h3 class="title is-4"><span
-        class="dvima">Comparison to Baselines on A Single-Object Grasping Benchmark
-      </span></h3>
-      <div class="content has-text-justified">
-              <img src="./assets/images/single-object.jpg" class="interpolation-image"
-             alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
-             <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-                <p>
-                    To compare DexGraspVLA with baselines whose controllers learn directly from raw visual inputs, we conduct 
-                    <strong>single-object grasping experiments</strong> on <strong>13 seen objects</strong> and <strong>8 unseen objects</strong>. 
-                    Each object is placed at <strong>five different table locations</strong>, ensuring coverage of the workspace and the robot's reach. 
-                    At each location, the policy attempts <strong>two independent grasps</strong>, totaling <strong>210 tests</strong> under consistent 
-                    environmental conditions (white tabletop and lighting, in a <strong>zero-shot environment</strong>).
-                </p>
-                <p>
-                    DexGraspVLA achieves <strong>over 98% success</strong> on both seen and unseen objects, significantly outperforming alternatives. 
-                    Notably, it even performs slightly better on unseen objects, confirming that it generalizes beyond training data rather than overfitting. 
-                    In contrast, baseline models struggle in the novel environment, as they directly map raw inputs to actions and are sensitive to perceptual shifts.
-                </p>
-            
-            </div>
-  </div>
-
-  <h3 class="title is-4"><span
-    class="dvima">Internal Model Behavior Analysis
-  </span></h3>
-  <div class="content has-text-justified">
-          <img src="./assets/images/analysis.jpg" class="interpolation-image"
-         alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
-         <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-            <p>
-              We analyze the internal model behavior of DexGraspVLA to show that it <strong> is robust to environmental variations.</strong> The first row in the figure above presents the cropped raw head images of the same cluttered objects in four different environments: a white table, a calibration board, a tablecloth, and a tablecloth under disco light. The second row shows that the <strong>DINOv2 features</strong> of images are consistent across variations. The third row is the <strong>masks</strong> of the target objects accurately tracked by Cutie. The fourth row reflects that the averaged <strong>attention maps</strong> of DiT to head image features are also consistent regardless of perceptual differences. The fifth row confirms DexGraspVLA is attending to the correct object. Therefore, we substantiate that DexGraspVLA indeed transforms perceptually diverse raw inputs into invariant representations, on which it effectively applies imitation learning to model the data distribution, explaining its <strong>superior generalization performance</strong>.
-            </p>
-        
-        </div>
-</div>
-
-
-<h3 class="title is-4"><span
-  class="dvima">Long-Horizon Task Evaluation
-</span></h3>
-<div class="content has-text-justified">
-        <img src="./assets/images/long-horizon.jpg" class="interpolation-image"
-       alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
-       <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-          <p>
-            To evaluate DexGraspVLA's capability on complex, long-horizon tasks, we design four user prompts: "Clear the table", "Grasp all bottles", "Grasp all green objects", and "Grasp all food". These prompts require common-sense and physical knowledge to identify appropriate grasping targets sequentially. For each prompt, we generate 24 cluttered scenes using unseen objects placed on a white tabletop under white lighting. Tasks involve grasping multiple relevant targets in sequence, requiring both high-level planning and precise low-level control.
-          </p>
-          <p>
-            DexGraspVLA achieves an overall task success rate of <strong>89.6%</strong>, completing all stages of the multi-step prompts reliably. The high-level planner accurately proposes current grasping instructions (<strong>94.3% success</strong> on average), marks bounding boxes with over <strong>98% accuracy</strong>, and detects task completion to avoid redundant actions (<strong>94+% accuracy</strong>). The low-level controller executes grasps with over <strong>91% success</strong>, enabling robust step-by-step task execution. These results underscore DexGraspVLA's strong reasoning capability, perceptual grounding, and action reliability—working in synergy to complete long-horizon tasks without any task-specific training.
-          </p>
-      
-      </div>
-</div>
-
-<h3 class="title is-4"><span
-  class="dvima">Extended Application to Nonprehensile Grasping
-</span></h3>
-<div class="content has-text-justified">
-        <img src="./assets/images/non-prehensile.jpg" class="interpolation-image"
-       alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
-       <div class="content has-text-justified hover-card" style="padding: 1.5rem;">
-          <p>
-            To test its generality, we extend DexGraspVLA to nonprehensile grasping, which requires object repositioning before lifting, by applying the same hierarchical framework without architectural changes. Trained on over 1,000 demonstrations with flat, hard-to-grasp objects, DexGraspVLA achieves 84.7% success on 144 tests with 18 unseen objects across novel lighting and background conditions. It learns to push objects toward the table edge before executing a stable grasp, showing robust generalization to shape, texture, and pose variations. This result highlights DexGraspVLA's flexibility in handling complex manipulation skills beyond dexterous grasping, and its generality in both perception and control.
-          </p>
-
-      </div>
-</div>
-
-
-    </div>
-  </div>
-</section>
-
-<section class="hero">
   <div class="hero-body">
     <div class="container is-max-widescreen">
       <!-- Performance Demonstrations -->
@@ -570,7 +454,7 @@
                   </div>
                   <div class="column">
                     <video poster="" autoplay controls muted loop width="300">
-                      <source src="assets/videos/background/7.mp4" type="video/mp4">
+                      <source src="assets/videos/background/9.mp4" type="video/mp4">
                     </video>
                   </div>
                   <div class="column">
@@ -807,7 +691,7 @@
   </div>
 </section>
 
-<section class="hero is-light">
+<section class="hero">
   <div class="hero-body">
     <div class="container is-max-widescreen">
       <!-- Generalization Videos -->
@@ -817,7 +701,7 @@
       <div class="column">
           <div class="content has-text-justified">
           <p style="font-size: 125%">
-            We present DexGraspVLA, a hierarchical VLA framework for general-purpose dexterous grasping. By leveraging a pre-trained VLM as the high-level planner and a diffusion-based low-level controller, the system transforms diverse multimodal inputs into domain-invariant representations and learns robust closed-loop grasping policies via imitation learning. Our large-scale evaluations show over 90% success across thousands of unseen cluttered scenes in a zero-shot setting, with empirical evidence of strong generalization and consistent internal behavior. DexGraspVLA also handles free-form long-horizon prompts, recovers from failures, and extends to nonprehensile grasping, demonstrating broad applicability.
+            We present DexGraspVLA, a hierarchical VLA framework aiming for robust generalization in language-guided dexterous grasping and beyond. By leveraging a pre-trained VLM as the high-level planner and vision foundation models in the low-level controller, the system transforms multimodal inputs into domain-invariant representations and learns robust closed-loop policies via imitation learning. Our large-scale evaluations show over 90% grasping success across thousands of unseen cluttered scenes in a zero-shot setting, with empirical evidence of consistent internal behavior. DexGraspVLA also handles free-form long-horizon prompts, recovers from failures, and extends to nonprehensile grasping, demonstrating broad applicability.
         </p>
 
         </div>
@@ -827,7 +711,7 @@
   </div>
 </section>
 
-<section class="section" id="BibTeX">
+<section class="section hero is-light" id="BibTeX">
   <div class="container is-max-widescreen content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{zhong2025dexgraspvla,
